@@ -31,6 +31,9 @@ export interface PeriodBarProps {
   onTimezoneClick: () => void
   onSettingClick: () => void
   onScreenshotClick: () => void
+  onMarkPointClick: () => void
+  onProfitClick: () => void
+  onPnlClick: () => void
 }
 
 const PeriodBar: Component<PeriodBarProps> = props => {
@@ -68,7 +71,7 @@ const PeriodBar: Component<PeriodBarProps> = props => {
           <path d="M192.037 287.953h640.124c17.673 0 32-14.327 32-32s-14.327-32-32-32H192.037c-17.673 0-32 14.327-32 32s14.327 32 32 32zM832.161 479.169H438.553c-17.673 0-32 14.327-32 32s14.327 32 32 32h393.608c17.673 0 32-14.327 32-32s-14.327-32-32-32zM832.161 735.802H192.037c-17.673 0-32 14.327-32 32s14.327 32 32 32h640.124c17.673 0 32-14.327 32-32s-14.327-32-32-32zM319.028 351.594l-160 160 160 160z"/>
         </svg>
       </div>
-      <Show when={props.symbol}>
+      {/* <Show when={props.symbol}>
         <div
           class="symbol"
           onClick={props.onSymbolClick}>
@@ -77,7 +80,7 @@ const PeriodBar: Component<PeriodBarProps> = props => {
           </Show>
           <span>{props.symbol.shortName ?? props.symbol.name ?? props.symbol.ticker}</span>
         </div>
-      </Show>
+      </Show> */}
       {
         props.periods.map(p => (
           <span
@@ -113,6 +116,24 @@ const PeriodBar: Component<PeriodBarProps> = props => {
         </svg>
         <span>{i18n('setting', props.locale)}</span>
       </div>
+      <div
+        class='item tools'
+        onClick={props.onMarkPointClick}>
+        <span>{i18n('marketPoint', props.locale)}</span>
+      </div>
+
+      <div
+        class='item tools'
+        onClick={props.onProfitClick}>
+        <span>{i18n('profit', props.locale)}</span>
+      </div>
+
+      <div
+        class='item tools'
+        onClick={props.onPnlClick}>
+        <span>{i18n('pnl', props.locale)}</span>
+      </div>
+
       <div
         class='item tools'
         onClick={props.onScreenshotClick}>

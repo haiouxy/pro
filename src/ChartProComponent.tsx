@@ -550,6 +550,21 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
             setScreenshotUrl(url)
           }
         }}
+        onMarkPointClick={() => {
+          if (widget) {
+            createIndicator(widget, "POINT", true, { id: 'candle_pane' })
+          }
+        }}
+        onProfitClick={() => {
+          if (widget) {
+            createIndicator(widget, "PROFIT")
+          }
+        }}
+        onPnlClick={() => {
+          if (widget) {
+            createIndicator(widget, "PNL")
+          }
+        }}
       />
       <div
         class="klinecharts-pro-content">
